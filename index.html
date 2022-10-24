@@ -50,20 +50,10 @@
 
 
         function emulateClick(url) {
-                  // Create anchor element.
-                  var a = document.createElement('a'); 
-                    
-                  // Set the href property.
-                  a.href = url; 
-                  a.target = '_blank'
-
-                    
-                  // Append the anchor element to the body.
-                  document.body.appendChild(a); 
-
-                  a.click()
-
-                  a.remove()
+               if (AppInterface) {
+                AppInterface.postMessage('{"name": "openInBrowser", "url": "http://google.com"}')
+                console.log('iframeLoaded')
+            }
               }
 
               function simulateClick(url) {
